@@ -1,1 +1,6 @@
 .idea
+bootstrap/cache
+vendor
+
+.phpunit.result.cache
+composer.lock
