@@ -9,9 +9,10 @@
     }
   ],
   "require": {
-    "php": "^8.0",
+    "php":                  "^7.4|^8.0",
     "symfony/css-selector": "^4.4|^5.0",
-    "masterminds/html5": "^2.6"
+    "masterminds/html5":    "^2.6",
+    "ext-dom":              "*"
   },
   "autoload": {
     "psr-4": {
@@ -27,7 +28,9 @@
     "orchestra/testbench": "^5.0|^6.0",
     "phpunit/phpunit": "^9.0",
     "friendsofphp/php-cs-fixer": "^3.0",
-    "vimeo/psalm": "^4.7"
+    "vimeo/psalm": "^4.7",
+    "nunomaduro/collision": "^5.10",
+    "brianium/paratest": "^6.3"
   },
   "scripts": {
     "psalm": "vendor/bin/psalm",

@@ -2,6 +2,7 @@
 
 namespace Aammui\LaravelParser\Tests;
 
+use Aammui\LaravelParser\LaravelParserServiceProvider;
 use Illuminate\Foundation\Application;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
@@ -16,9 +17,8 @@ class TestCase extends BaseTestCase
      */
     protected function getPackageProviders($app): array
     {
-        $app->setBasePath(__DIR__.'/..');
-
         return [
+            LaravelParserServiceProvider::class,
         ];
     }
 }

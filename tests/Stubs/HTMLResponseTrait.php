@@ -4,6 +4,20 @@ namespace Aammui\LaravelParser\Tests\Stubs;
 
 trait HTMLResponseTrait
 {
+    public function getAttributesResponse()
+    {
+        return <<<HTML
+        <body>
+        <h1>I am Heading</h1>
+            <ul>
+                <li class="class-1" data-url="https://google.com">List 1</li>
+                <li class="class" data-url="https://google.com">List 2</li>
+                <li class="class">List 3</li>
+            </ul>
+        </body>
+        HTML;
+    }
+
     public function getResponse()
     {
         return <<<END
@@ -40,7 +54,5 @@ trait HTMLResponseTrait
   </body>
  </html>
 END;
-
-        return file_get_contents(base_path("tests/responses/response.html"));
     }
 }

@@ -5,6 +5,8 @@ HTML parser for Laravel/PHP.
 ### Introduction
 This packages parses html responses, with very efficient APIs. But it doesn't parse any url.
 
+> This package is heavily based/inspire on https://github.com/symfony/dom-crawler
+
 ### Installation
 ```shell
 composer require aammui/laravel-parser
@@ -13,7 +15,7 @@ composer require aammui/laravel-parser
 ### Uses
 
 ```php
-use Aammui\LaravelParser\Parser\PHPSoup;
+use Aammui\LaravelParser\Facade\PHPSoup;
 
 $html = <<<END
 <html lang="en">
@@ -84,21 +86,7 @@ echo $soup->get("head > title")->html();
 echo $soup->get("#link1 ~ .sister")->html();
 # [<a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
 #  <a class="sister" href="http://example.com/tillie"  id="link3">Tillie</a>]
-
-// Limit th results
-echo $soup->limit(2)->get("a");
-# [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
-#  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>]
-
 ```
-
-### Methods
-| Method | Description | Implementation |
-| --- | --- |  --- | 
-| get(): Collection |  |  Yet to be implemented |
-| first() |  | Yet to be implemented |
-| where() |  | Yet to be implemented |
-| limit() |  | Yet to be implemented |
 
 
 
