@@ -2,8 +2,6 @@
 
 namespace Aammui\LaravelParser\Parser;
 
-use Doctrine\Common\Annotations\PhpParser;
-use Illuminate\Support\Facades\Route;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
