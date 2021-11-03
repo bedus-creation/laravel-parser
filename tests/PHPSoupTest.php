@@ -5,7 +5,12 @@ namespace Aammui\LaravelParser\Tests;
 use Aammui\LaravelParser\Facade\PHPSoup;
 use Aammui\LaravelParser\Tests\Stubs\HTMLResponseTrait;
 
-class HTMLSoupTest extends TestCase
+/**
+ * Class PHPSoupTest
+ *
+ * @package Aammui\LaravelParser\Tests
+ */
+class PHPSoupTest extends TestCase
 {
     use HTMLResponseTrait;
 
@@ -16,11 +21,7 @@ class HTMLSoupTest extends TestCase
 
         $soup = PHPSoup::parse($html);
 
-        $this->assertStringContainsString("The Dormouse's story\n", $soup->get("p>b")->text());
-        $this->assertEquals("The Dormouse's story", $soup->get("p>b")->text(true));
-
-        $this->assertStringContainsString("The Dormouse's story\n", $soup->first("p>b")->text());
-        $this->assertEquals("The Dormouse's story", $soup->first("p>b")->text(true));
+        $this->assertEquals("The Dormouse's story", $soup->get("p>b")->text());
     }
 
     /** @test */
@@ -28,7 +29,7 @@ class HTMLSoupTest extends TestCase
     {
         $soup = PHPSoup::parse($this->getResponse());
 
-        $html = $soup->get("p")->index(2)->html();
+        $html = $soup->get("p")->index(2)->outerHtml();
 
         $this->assertStringContainsString("<p class=\"story\"", $html);
     }
@@ -50,8 +51,8 @@ class HTMLSoupTest extends TestCase
     {
         $soup = PHPSoup::parse($this->getAttributesResponse());
 
-        $url = $soup->get("ul")
-            ->first("li")
+        $url = $soup->get("ul>li")
+            ->first()
             ->attributes("data-url");
 
         $this->assertEquals("https://google.com", $url);
